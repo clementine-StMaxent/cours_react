@@ -1,20 +1,25 @@
 import React from 'react'
+import { Fragment } from 'react'
+import { Button } from 'primereact/button'
 
 export const Accueil = () => {
   return (
-    <div style = {style.div}>
-      <p style = {style.paragraphe}>Bonjour à tous</p>
-    </div>
+    <Fragment>
+      <p>Bonjour</p>
+      <Button label='Word'></Button>
+    </Fragment>
   )
 }
 
-const style = {
-  paragraphe: {
-    backgroundColor: "red",
-    display: "inline-flex"
-  },
+// const style = {
+//   paragraphe: {
+//     backgroundColor: "red",
+//     display: "inline-flex"
+//   },
 
-  div: {
-    backgroundColor: "yellow"
-  }
-}
+//   div: {
+//     backgroundColor: "yellow"
+//   }
+// }
+
+export default Accueil;

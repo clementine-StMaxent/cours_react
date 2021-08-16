@@ -1,11 +1,36 @@
 import logo from './logo.svg';
 import './App.css';
-import { Accueil } from './Accueil';
+import { ComponentClass } from './ComposantClass';
+import { Component, Fragment } from 'react';
+import CompteurComponent from './CompteurComponent';
 
-function App() {
-  return (
-    <Accueil />
-  );
+
+export default class App extends Component {
+
+  constructor(props) {
+    super(props)
+    this.state = {
+      nom: "St-Max"
+    }
+  }
+
+  changeNom = () => {
+    this.setState({ nom: this.state.nom === "St-Max" ? "Jean" : "St-Max" })
+  }
+
+  render() {
+    return (
+
+      <Fragment>
+        {/* <Accueil /> */}
+        {/* <ComponentClass />
+      <ComponentClass />
+      <ComponentClass /> */}
+        <CompteurComponent />
+        <ComponentClass modifNom={this.changeNom} nom = {this.state.nom}/>
+
+      </Fragment>
+    )
+  }
 }
 
-export default App;
