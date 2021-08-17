@@ -4,8 +4,7 @@ import { InfoUser } from './InfoUser'
 
 export const Utilisateur = () => {
 
-    const [utilisateur = { nom, prenom }, setUtilisateur] = useState(utilisateur = { nom: 'St-Max', prenom: 'Clémentine' })
-
+    const [utilisateur, setUtilisateur] = useState({ nom: "St-Max", prenom: "Clémentine" })
 
     // constructor(props) {
     //     super(props)
