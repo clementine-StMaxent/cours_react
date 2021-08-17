@@ -1,32 +1,38 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component, Fragment, useState } from 'react'
 
-export default class InfoUser extends Component {
-    constructor(props){
-        super(props)
-        this.state = {
-            utilisateurModif : {
-                nom : this.props.utilisateur.nom,
-                prenom : this.props.utilisateur.prenom
-            }
+
+export const InfoUser = () => {
+    
+    const [utilisateurModif, setutilisateurModif] = useState(utilisateurModif)
+    const [enregistrerUser, setEnregistrerUser] = useState(enregistrerUser)
+
+    // constructor(props){
+    //     super(props)
+    //     this.state = {
+    //         utilisateurModif : {
+    //             nom : this.props.utilisateur.nom,
+    //             prenom : this.props.utilisateur.prenom
+    //         }
+    //     }
+    // }
+
+    const handleChangeNom = (e) => {
+        return { utilisateurModif, nom: e.target.value }
+    }
+    const handleChangePrenom = (e) => {
+        return {
+            utilisateurModif: { utilisateurModif, prenom: e.target.value }
         }
-    }
 
-    handleChangeNom = (e) => {
-        this.setState({utilisateurModif : {...this.state.utilisateurModif, nom:e.target.value}})
-    }
-    handleChangePrenom = (e) => {
-        this.setState({utilisateurModif : {...this.state.utilisateurModif, prenom:e.target.value}})
-    }
-    handleClickValider = () => {
-        this.props.enregistrerUser(this.state.utilisateurModif)
-    }
+        const handleClickValider = () => {
+            return enregistrerUser(utilisateurModif)
+        }
 
-    render() {
         return (
             <Fragment>
-                <input onChange={(e) => this.handleChangeNom(e)} defaultValue={this.props.utilisateur.nom}/>
-                <input onChange={(e) => this.handleChangePrenom(e)} defaultValue={this.props.utilisateur.prenom}/>  
-                <button onClick={this.handleClickValider}>OK !</button>        
+                <input onChange={(e) => handleChangeNom(e)} defaultValue={this.props.utilisateur.nom} />
+                <input onChange={(e) => handleChangePrenom(e)} defaultValue={this.props.utilisateur.prenom} />
+                <button onClick={() => handleClickValider}>OK !</button>
             </Fragment>
         )
     }

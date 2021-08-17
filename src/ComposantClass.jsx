@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import Utilisateur from './component/Utilisateur';
+import React, { Component,useState } from 'react';
+import {Utilisateur} from './component/Utilisateur';
 
-export class ComponentClass extends Component {
+export const ComponentClass = () => {
 
     // constructor() {
     //     // appeler le construteur supérieur
@@ -10,11 +10,12 @@ export class ComponentClass extends Component {
     //         elementState: 'peuImporte'
     //     }
     // }
-    constructor(props){
-        super(props)
-    }
+    // constructor(props){
+    //     super(props)
+    // }
 
-    render() {
+
+    const [props, setProps] = useState(props)
         return (
             <>
                 {/* <h1>{this.state.elementState}</h1> */}
@@ -26,4 +27,3 @@ export class ComponentClass extends Component {
             </>
         )
     }
-}

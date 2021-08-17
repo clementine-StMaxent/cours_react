@@ -1,29 +1,30 @@
-import React, { Component } from 'react'
-import AffichageUtilisateur from './AffichageUtilisateur'
-import InfoUser from './InfoUser'
+import React, { useState } from 'react';
+import { AffichageUtilisateur } from './AffichageUtilisateur';
+import { InfoUser } from './InfoUser'
 
-export default class Utilisateur extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            utilisateur: {
-                nom: "St-Max",
-                prenom: "Clémentine"
-            }
-        }
-    }
+export const Utilisateur = () => {
 
-    enregistrerUser = (utilisateur) => {
-        this.setState({utilisateur : utilisateur})
-    }
+    const [utilisateur = { nom, prenom }, setUtilisateur] = useState(utilisateur = { nom: 'St-Max', prenom: 'Clémentine' })
 
-    render() {
-        return (
-            <div>
-                <AffichageUtilisateur utilisateur={this.state.utilisateur} />
-                <InfoUser enregistrerUser={this.enregistrerUser}
-                utilisateur={this.state.utilisateur} />
-            </div>
-        )
+
+    // constructor(props) {
+    //     super(props)
+    //     this.state = {
+    //         utilisateur: {
+    //             nom: "St-Max",
+    //             prenom: "Clémentine"
+    //         }
+    //     }
+    // }
+
+    const enregistrerUser = (utilisateur) => {
+        return ({ utilisateur: utilisateur })
     }
+    return (
+        <div>
+            <AffichageUtilisateur utilisateur={utilisateur} />
+            <InfoUser enregistrerUser={enregistrerUser}
+                utilisateur={utilisateur} />
+        </div>
+    )
 }

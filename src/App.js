@@ -1,26 +1,28 @@
 import logo from './logo.svg';
 import './App.css';
 import { ComponentClass } from './ComposantClass';
-import { Component, Fragment } from 'react';
+import { Component, Fragment , useState} from 'react';
 import CompteurComponent from './CompteurComponent';
-import Utilisateur from './component/Utilisateur';
+import {Utilisateur} from './component/Utilisateur';
 import { TestReact } from './component/TestReact';
+import { ChoixDynamique } from './jour2/ChoixDynamique';
 
 
-export default class App extends Component {
+export const App = () => {
 
-  constructor(props) {
-    super(props)
-    this.state = {
-      nom: "St-Max"
-    }
+
+  const [nom, setNom] = useState("St-Max")
+  // constructor(props) {
+  //   super(props)
+  //   this.state = {
+  //     nom: "St-Max"
+  //   }
+  // }
+
+  const changeNom = () => {
+    return ({ nom: this.state.nom === "St-Max" ? "Jean" : "St-Max" })
   }
 
-  changeNom = () => {
-    this.setState({ nom: this.state.nom === "St-Max" ? "Jean" : "St-Max" })
-  }
-
-  render() {
     return (
 
       <Fragment>
@@ -31,9 +33,8 @@ export default class App extends Component {
         {/* <CompteurComponent />
         <ComponentClass modifNom={this.changeNom} nom = {this.state.nom}/> */}
         <Utilisateur />
-        <TestReact />
+        {/* <TestReact />
+        <ChoixDynamique type="premier" val={"Thomas"} /> */}
       </Fragment>
     )
   }
-}
-
